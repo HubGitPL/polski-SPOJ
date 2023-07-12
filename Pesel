@@ -1,0 +1,35 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+//4*1 + 4*3 + 0*7 + 5*9 + 1*1 + 4*3 + 0*7 + 1*9 + 4*1 + 5*3 + 8*1 = 110
+bool czy_poprawna(string pesel)
+{
+    int wynik = 0;
+    wynik += (pesel[0] - 48);
+    wynik += (pesel[1] - 48) * 3;
+    wynik += (pesel[2] - 48) * 7;
+    wynik += (pesel[3] - 48) * 9;
+    wynik += (pesel[4] - 48);
+    wynik += (pesel[5] - 48) * 3;
+    wynik += (pesel[6] - 48) * 7;
+    wynik += (pesel[7] - 48) * 9;
+    wynik += (pesel[8] - 48);
+    wynik += (pesel[9] - 48) * 3;
+    wynik += (pesel[10] - 48);
+    if(wynik > 0 && wynik %10 == 0) return true;
+    return false;
+}
+int main()
+{
+    string pesel;
+    int t;
+    cin >> t;
+    for(int i = 0 ; i < t; i++)
+    {
+        cin >> pesel;
+        if(czy_poprawna(pesel)) cout << "D" << endl;
+        else cout << "N" << endl;
+ 
+    }
+}
