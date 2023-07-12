@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int euclides(int a, int b);
+int main()
+{
+   int ile;
+   cin >> ile;
+ 
+   for(int i = 0 ; i < ile ; i++)
+   {
+       int a, b;
+       cin >> a >> b;
+       cout << a / euclides(a , b) * b << endl;
+   }
+}
+int euclides(int a, int b)
+{
+    int help = 0;
+ 
+    while (b != 0)
+    {
+        help = a % b;
+        a = b;
+        b = help;
+    }
+    return a;
+ 
+}
